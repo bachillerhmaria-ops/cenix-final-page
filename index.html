@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CENIX</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Inter",sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAV */
+
+header{
+
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 70px;
+
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
+
+z-index:10;
+
+}
+
+.logo img{
+
+height:40px;
+filter:drop-shadow(0 0 10px rgba(255,60,60,.4));
+
+}
+
+/* MENU */
+
+nav a{
+
+margin:0 18px;
+color:white;
+text-decoration:none;
+font-weight:500;
+
+position:relative;
+
+}
+
+nav a:after{
+
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:2px;
+
+background:#ff3b3b;
+transition:.3s;
+
+}
+
+nav a:hover:after{
+width:100%;
+}
+
+/* BUTTON */
+
+.btn{
+
+padding:14px 30px;
+background:linear-gradient(45deg,#ff2e2e,#ff5e5e);
+border:none;
+border-radius:6px;
+
+color:white;
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 0 30px rgba(255,60,60,.8);
+
+}
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),
+
+url("images/fondo.png");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+padding:0 40px;
+
+}
+
+.hero h1{
+
+font-size:72px;
+font-weight:800;
+letter-spacing:-1px;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:22px;
+max-width:800px;
+margin:auto;
+
+margin-bottom:40px;
+
+color:#cfcfcf;
+
+}
+
+/* SECTION */
+
+.section{
+
+padding:130px 80px;
+text-align:center;
+
+}
+
+.section h2{
+
+font-size:46px;
+margin-bottom:70px;
+
+}
+
+/* SERVICES */
+
+.services{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:50px;
+
+}
+
+.card{
+
+background:#101010;
+
+padding:40px;
+
+border-radius:12px;
+
+border:1px solid #1c1c1c;
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-15px);
+
+box-shadow:0 20px 60px rgba(0,0,0,.7);
+
+border:1px solid #ff3b3b;
+
+}
+
+/* STATS */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:50px;
+
+margin-top:60px;
+
+}
+
+.stat{
+
+font-size:55px;
+font-weight:800;
+
+color:#ff3b3b;
+
+}
+
+.stat-label{
+
+margin-top:10px;
+color:#aaa;
+
+}
+
+/* CONTACT */
+
+.contact{
+
+background:#070707;
+
+padding:60px 40px;
+
+font-size:14px;
+
+color:#aaa;
+
+}
+
+.contact h3{
+
+color:white;
+margin-bottom:12px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+margin-top:60px;
+
+padding:30px;
+
+text-align:center;
+
+border-top:1px solid #222;
+
+color:#777;
+
+font-size:13px;
+
+}
+
+/* ANIMATION */
+
+.fade{
+
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+
+}
+
+.fade.visible{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="images/logo.png">
+</div>
+
+<nav>
+
+<a href="#">Servicios</a>
+<a href="#">Proyectos</a>
+<a href="#">Empresa</a>
+<a href="#">Contacto</a>
+
+</nav>
+
+<button class="btn">Presupuesto</button>
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="fade">
+
+<h1>Climatización y reformas profesionales</h1>
+
+<p>
+
+Especialistas en climatización, eficiencia energética y reformas integrales con más de 15 años de experiencia.
+
+</p>
+
+<button class="btn">Solicitar presupuesto</button>
+
+</div>
+
+</section>
+
+
+
+<section class="section fade">
+
+<h2>Servicios</h2>
+
+<div class="services">
+
+<div class="card">
+
+<h3>Climatización</h3>
+
+<p>Instalación de aire acondicionado, calefacción y aerotermia.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Reformas integrales</h3>
+
+<p>Transformación completa de viviendas y espacios comerciales.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Mantenimiento</h3>
+
+<p>Servicio técnico y mantenimiento especializado.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section fade">
+
+<h2>Resultados</h2>
+
+<div class="stats">
+
+<div>
+
+<div class="stat" data-target="500">0</div>
+<div class="stat-label">Proyectos realizados</div>
+
+</div>
+
+<div>
+
+<div class="stat" data-target="300">0</div>
+<div class="stat-label">Clientes satisfechos</div>
+
+</div>
+
+<div>
+
+<div class="stat" data-target="15">0</div>
+<div class="stat-label">Años experiencia</div>
+
+</div>
+
+<div>
+
+<div class="stat" data-target="24">0</div>
+<div class="stat-label">Servicio urgencias</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="contact fade">
+
+<h3>Contacto</h3>
+
+<p>Teléfono: +34 600 000 000</p>
+
+<p>Email: info@cenix.es</p>
+
+<p>Madrid, España</p>
+
+</section>
+
+
+
+<footer>
+
+© 2026 CENIX
+
+</footer>
+
+
+
+<script>
+
+/* COUNTERS */
+
+const counters=document.querySelectorAll(".stat");
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.getAttribute("data-target");
+
+const count=+counter.innerText;
+
+const inc=target/200;
+
+if(count<target){
+
+counter.innerText=Math.ceil(count+inc);
+
+setTimeout(update,10);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+};
+
+update();
+
+});
+
+/* SCROLL ANIMATION */
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+
+</script>
+
+
+</body>
+</html>
