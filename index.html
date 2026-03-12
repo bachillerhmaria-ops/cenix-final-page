@@ -16,6 +16,7 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:"Inter",sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
@@ -31,13 +32,15 @@ header{
 position:fixed;
 top:0;
 width:100%;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 70px;
+
+padding:22px 80px;
 
 background:rgba(0,0,0,0.6);
-backdrop-filter:blur(12px);
+backdrop-filter:blur(15px);
 
 z-index:10;
 
@@ -45,8 +48,8 @@ z-index:10;
 
 .logo img{
 
-height:40px;
-filter:drop-shadow(0 0 10px rgba(255,60,60,.4));
+height:42px;
+filter:drop-shadow(0 0 12px rgba(255,70,70,.5));
 
 }
 
@@ -54,7 +57,7 @@ filter:drop-shadow(0 0 10px rgba(255,60,60,.4));
 
 nav a{
 
-margin:0 18px;
+margin:0 20px;
 color:white;
 text-decoration:none;
 font-weight:500;
@@ -73,6 +76,7 @@ width:0;
 height:2px;
 
 background:#ff3b3b;
+
 transition:.3s;
 
 }
@@ -87,6 +91,7 @@ width:100%;
 
 padding:14px 30px;
 background:linear-gradient(45deg,#ff2e2e,#ff5e5e);
+
 border:none;
 border-radius:6px;
 
@@ -102,8 +107,7 @@ transition:.3s;
 .btn:hover{
 
 transform:translateY(-4px);
-
-box-shadow:0 0 30px rgba(255,60,60,.8);
+box-shadow:0 0 30px rgba(255,70,70,.8);
 
 }
 
@@ -115,12 +119,12 @@ height:100vh;
 
 background:
 
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),
-
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.85)),
 url("images/fondo.png");
 
 background-size:cover;
 background-position:center;
+background-attachment:fixed;
 
 display:flex;
 align-items:center;
@@ -158,14 +162,14 @@ color:#cfcfcf;
 
 .section{
 
-padding:130px 80px;
+padding:140px 80px;
 text-align:center;
 
 }
 
 .section h2{
 
-font-size:46px;
+font-size:48px;
 margin-bottom:70px;
 
 }
@@ -192,15 +196,15 @@ border-radius:12px;
 
 border:1px solid #1c1c1c;
 
-transition:.35s;
+transition:.4s;
 
 }
 
 .card:hover{
 
-transform:translateY(-15px);
+transform:translateY(-18px);
 
-box-shadow:0 20px 60px rgba(0,0,0,.7);
+box-shadow:0 25px 60px rgba(0,0,0,.7);
 
 border:1px solid #ff3b3b;
 
@@ -211,7 +215,6 @@ border:1px solid #ff3b3b;
 .stats{
 
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 
 gap:50px;
@@ -222,9 +225,8 @@ margin-top:60px;
 
 .stat{
 
-font-size:55px;
+font-size:60px;
 font-weight:800;
-
 color:#ff3b3b;
 
 }
@@ -236,13 +238,50 @@ color:#aaa;
 
 }
 
+/* PROJECTS */
+
+.projects{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:40px;
+
+}
+
+.project{
+
+background:#0d0d0d;
+border-radius:12px;
+overflow:hidden;
+
+transition:.3s;
+
+}
+
+.project img{
+
+width:100%;
+display:block;
+
+}
+
+.project:hover{
+
+transform:translateY(-15px);
+
+box-shadow:0 20px 50px rgba(0,0,0,.7);
+
+}
+
 /* CONTACT */
 
 .contact{
 
 background:#070707;
 
-padding:60px 40px;
+padding:70px 40px;
 
 font-size:14px;
 
@@ -253,7 +292,7 @@ color:#aaa;
 .contact h3{
 
 color:white;
-margin-bottom:12px;
+margin-bottom:10px;
 
 }
 
@@ -275,7 +314,7 @@ font-size:13px;
 
 }
 
-/* ANIMATION */
+/* SCROLL ANIMATION */
 
 .fade{
 
@@ -415,6 +454,30 @@ Especialistas en climatización, eficiencia energética y reformas integrales co
 
 
 
+<section class="section fade">
+
+<h2>Proyectos</h2>
+
+<div class="projects">
+
+<div class="project">
+<img src="images/fondo.png">
+</div>
+
+<div class="project">
+<img src="images/fondo.png">
+</div>
+
+<div class="project">
+<img src="images/fondo.png">
+</div>
+
+</div>
+
+</section>
+
+
+
 <section class="contact fade">
 
 <h3>Contacto</h3>
@@ -443,12 +506,17 @@ Especialistas en climatización, eficiencia energética y reformas integrales co
 
 const counters=document.querySelectorAll(".stat");
 
-counters.forEach(counter=>{
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const counter=entry.target;
 
 const update=()=>{
 
 const target=+counter.getAttribute("data-target");
-
 const count=+counter.innerText;
 
 const inc=target/200;
@@ -456,7 +524,6 @@ const inc=target/200;
 if(count<target){
 
 counter.innerText=Math.ceil(count+inc);
-
 setTimeout(update,10);
 
 }else{
@@ -469,11 +536,20 @@ counter.innerText=target;
 
 update();
 
+}
+
 });
+
+});
+
+counters.forEach(c=>observer.observe(c));
+
 
 /* SCROLL ANIMATION */
 
-const observer=new IntersectionObserver(entries=>{
+const elements=document.querySelectorAll(".fade");
+
+const observer2=new IntersectionObserver(entries=>{
 
 entries.forEach(entry=>{
 
@@ -487,10 +563,9 @@ entry.target.classList.add("visible");
 
 });
 
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+elements.forEach(el=>observer2.observe(el));
 
 </script>
-
 
 </body>
 </html>
