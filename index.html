@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CENIX | Climatización y Reformas</title>
+  <meta name="description" content="CENIX Madrid. Especialistas en climatización, reformas, instalaciones y eficiencia energética en Madrid y alrededores.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +22,6 @@
       --shadow-red: 0 0 0 1px rgba(255,74,73,0.2), 0 18px 50px rgba(255, 58, 58, 0.16);
       --shadow-cyan: 0 0 0 1px rgba(21,215,255,0.16), 0 18px 50px rgba(21,215,255,0.08);
       --container: 1280px;
-      --radius: 22px;
     }
 
     * { box-sizing: border-box; }
@@ -43,8 +43,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(circle at center, black 42%, transparent 95%);
       pointer-events: none;
@@ -85,7 +85,6 @@
       min-width: 148px;
       height: 52px;
       padding: 0 18px;
-      border-radius: 0;
       background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.08);
       position: relative;
@@ -883,6 +882,42 @@
     .legal a { transition: color .22s ease; }
     .legal a:hover { color: white; }
 
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #25d366, #18b955);
+      color: white;
+      font-size: 30px;
+      box-shadow: 0 18px 40px rgba(37, 211, 102, 0.35);
+      z-index: 120;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 22px 48px rgba(37, 211, 102, 0.42);
+    }
+
+    .whatsapp-label {
+      position: fixed;
+      right: 96px;
+      bottom: 34px;
+      background: rgba(10,12,16,0.9);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      z-index: 119;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.24);
+    }
+
     @media (max-width: 1200px) {
       .reasons-grid,
       .process-grid { grid-template-columns: repeat(2, 1fr); }
@@ -920,6 +955,7 @@
       .stats { gap: 18px; }
       .stat span { font-size: 16px; }
       .footer-bottom { flex-direction: column; }
+      .whatsapp-label { display: none; }
     }
   </style>
 </head>
@@ -950,7 +986,7 @@
         <p>Especialistas en climatización, aire acondicionado, calefacción y reformas integrales con más de 15 años de experiencia.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contacto">Pide presupuesto</a>
-          <a class="btn btn-outline" href="tel:+34911234567">☎ &nbsp;+34 911 234 567</a>
+          <a class="btn btn-outline" href="tel:+34603684836">☎ &nbsp;+34 603 684 836</a>
         </div>
 
         <div class="stats">
@@ -995,7 +1031,7 @@
 
           <article class="card">
             <div class="icon-box">🛠</div>
-            <h3>Reformas Integrales</h3>
+            <h3>Reformas integrales</h3>
             <p>Transformamos espacios completos con diseño profesional y ejecución impecable. Desde viviendas hasta oficinas y locales comerciales.</p>
             <ul class="feature-list">
               <li><span class="tick">✓</span> Reformas completas</li>
@@ -1007,7 +1043,7 @@
 
           <article class="card">
             <div class="icon-box">🔧</div>
-            <h3>Instalaciones y Mantenimiento</h3>
+            <h3>Instalaciones y mantenimiento</h3>
             <p>Servicio técnico especializado con contratos de mantenimiento preventivo y correctivo para garantizar un funcionamiento óptimo.</p>
             <ul class="feature-list">
               <li><span class="tick">✓</span> Mantenimiento preventivo</li>
@@ -1019,7 +1055,7 @@
 
           <article class="card">
             <div class="icon-box">⚡</div>
-            <h3>Eficiencia Energética</h3>
+            <h3>Eficiencia energética</h3>
             <p>Estudios y soluciones para reducir el consumo energético y mejorar la certificación de tu inmueble con medidas reales y aplicables.</p>
             <ul class="feature-list">
               <li><span class="tick">✓</span> Auditorías energéticas</li>
@@ -1051,12 +1087,12 @@
           </article>
           <article class="reason">
             <div class="icon-box">👥</div>
-            <h3>Atención Personalizada</h3>
+            <h3>Atención personalizada</h3>
             <p>Estudiamos cada proyecto de forma individual para ofrecer la mejor solución.</p>
           </article>
           <article class="reason">
             <div class="icon-box">🛡</div>
-            <h3>Cumplimiento Normativo</h3>
+            <h3>Cumplimiento normativo</h3>
             <p>Todas nuestras instalaciones cumplen con la normativa vigente y certificaciones.</p>
           </article>
         </div>
@@ -1118,7 +1154,7 @@
               <img alt="Instalación de aerotermia" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80">
             </div>
             <div class="project-body">
-              <h3>Instalación de Aerotermia</h3>
+              <h3>Instalación de aerotermia</h3>
               <p>Sistema completo de aerotermia en vivienda unifamiliar.</p>
             </div>
           </article>
@@ -1129,7 +1165,7 @@
               <img alt="Reforma integral de oficina" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80">
             </div>
             <div class="project-body">
-              <h3>Reforma Integral Oficina</h3>
+              <h3>Reforma integral oficina</h3>
               <p>Renovación completa de espacios corporativos.</p>
             </div>
           </article>
@@ -1140,7 +1176,7 @@
               <img alt="Climatización industrial" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80">
             </div>
             <div class="project-body">
-              <h3>Climatización Industrial</h3>
+              <h3>Climatización industrial</h3>
               <p>Sistema de refrigeración para nave industrial.</p>
             </div>
           </article>
@@ -1151,7 +1187,7 @@
               <img alt="Reforma de local comercial" src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1200&q=80">
             </div>
             <div class="project-body">
-              <h3>Reforma de Local Comercial</h3>
+              <h3>Reforma de local comercial</h3>
               <p>Transformación de espacio comercial moderno.</p>
             </div>
           </article>
@@ -1162,7 +1198,7 @@
               <img alt="Instalación HVAC" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80">
             </div>
             <div class="project-body">
-              <h3>Instalación HVAC Edificio</h3>
+              <h3>Instalación HVAC edificio</h3>
               <p>Sistema completo de climatización en edificio corporativo.</p>
             </div>
           </article>
@@ -1173,7 +1209,7 @@
               <img alt="Reforma vivienda premium" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80">
             </div>
             <div class="project-body">
-              <h3>Reforma Vivienda Premium</h3>
+              <h3>Reforma vivienda premium</h3>
               <p>Renovación integral con diseño contemporáneo.</p>
             </div>
           </article>
@@ -1192,44 +1228,45 @@
             <article class="contact-card">
               <div class="icon-box">☎</div>
               <div class="mini">Teléfono</div>
-              <h3>+34 911 234 567</h3>
+              <h3>+34 603 684 836</h3>
             </article>
 
             <article class="contact-card">
               <div class="icon-box">✉</div>
               <div class="mini">Email</div>
-              <h3>info@cenix.es</h3>
+              <h3>info@cenixmadrid.com</h3>
             </article>
 
             <article class="contact-card">
               <div class="icon-box">📍</div>
               <div class="mini">Dirección</div>
-              <h3>Calle Ejemplo, 123, 28001 Madrid</h3>
+              <h3>Calle Portugal 54, Nave 34, Mejorada del Campo, 28848</h3>
             </article>
 
             <article class="contact-card highlight">
-              <h3>Horario de atención</h3>
-              <p>Lunes a Viernes: 8:00 - 20:00<br>Sábados: 9:00 - 14:00<br><span style="color: var(--cyan); font-weight: 700;">Urgencias 24/7</span></p>
+              <h3>Instagram y RRSS</h3>
+              <p><span style="color: var(--cyan); font-weight: 700;">@cenixmadrid</span></p>
             </article>
           </div>
 
           <div class="form-panel">
             <div class="form-grid">
-              <input class="field" type="text" placeholder="Tu nombre" />
-              <input class="field" type="email" placeholder="tu@email.com" />
-              <input class="field" type="tel" placeholder="+34 600 000 000" />
-              <select class="select">
+              <input id="name" class="field" type="text" placeholder="Tu nombre" />
+              <input id="email" class="field" type="email" placeholder="tu@email.com" />
+              <input id="phone" class="field" type="tel" placeholder="+34 600 000 000" />
+              <select id="service" class="select">
                 <option>Selecciona un servicio</option>
                 <option>Climatización</option>
                 <option>Reforma integral</option>
                 <option>Mantenimiento</option>
                 <option>Eficiencia energética</option>
               </select>
-              <textarea class="full" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+              <textarea id="message" class="full" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
             </div>
             <div class="submit-row">
-              <button class="btn btn-primary full" type="button">Enviar solicitud ✈</button>
-              <div class="fineprint">* Campos obligatorios. Respetamos tu privacidad.</div>
+              <button id="sendWhatsapp" class="btn btn-primary full" type="button">Enviar por WhatsApp ✈</button>
+              <button id="sendEmail" class="btn btn-outline full" type="button">Enviar por email</button>
+              <div class="fineprint">* Rellena al menos nombre, teléfono y mensaje para enviarlo por WhatsApp.</div>
             </div>
           </div>
         </div>
@@ -1246,9 +1283,9 @@
           </div>
           <p style="max-width: 360px; margin-top: 22px;">Especialistas en climatización y reformas con más de 15 años de experiencia.</p>
           <div class="socials">
-            <a class="social" href="#" aria-label="Facebook">f</a>
-            <a class="social" href="#" aria-label="Instagram">◎</a>
-            <a class="social" href="#" aria-label="LinkedIn">in</a>
+            <a class="social" href="https://instagram.com/cenixmadrid" target="_blank" rel="noopener noreferrer" aria-label="Instagram">@</a>
+            <a class="social" href="mailto:info@cenixmadrid.com" aria-label="Email">✉</a>
+            <a class="social" href="tel:+34603684836" aria-label="Teléfono">☎</a>
           </div>
         </div>
 
@@ -1266,19 +1303,20 @@
         <div>
           <h3 class="footer-title">Servicios</h3>
           <ul class="footer-links">
-            <li><a href="#">Climatización</a></li>
-            <li><a href="#">Reformas integrales</a></li>
-            <li><a href="#">Instalaciones</a></li>
-            <li><a href="#">Eficiencia energética</a></li>
+            <li><a href="#servicios">Climatización</a></li>
+            <li><a href="#servicios">Reformas integrales</a></li>
+            <li><a href="#servicios">Instalaciones</a></li>
+            <li><a href="#servicios">Eficiencia energética</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer-title">Contacto</h3>
           <ul class="contact-list">
-            <li><a href="tel:+34911234567">+34 911 234 567</a></li>
-            <li><a href="mailto:info@cenix.es">info@cenix.es</a></li>
-            <li><a href="#contacto">Calle Ejemplo, 123, 28001 Madrid</a></li>
+            <li><a href="tel:+34603684836">+34 603 684 836</a></li>
+            <li><a href="mailto:info@cenixmadrid.com">info@cenixmadrid.com</a></li>
+            <li><a href="https://instagram.com/cenixmadrid" target="_blank" rel="noopener noreferrer">@cenixmadrid</a></li>
+            <li><a href="#contacto">Calle Portugal 54, Nave 34, Mejorada del Campo, 28848</a></li>
           </ul>
         </div>
       </div>
@@ -1293,6 +1331,11 @@
       </div>
     </div>
   </footer>
+
+  <div class="whatsapp-label">¿Hablamos?</div>
+  <a class="whatsapp-float" href="https://wa.me/34603684836?text=Hola%20CENIX%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    ☏
+  </a>
 
   <script>
     const counters = document.querySelectorAll('.stat strong');
@@ -1336,6 +1379,48 @@
 
       observer.observe(heroStats);
     }
+
+    function getFormData() {
+      return {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        service: document.getElementById('service').value.trim(),
+        message: document.getElementById('message').value.trim()
+      };
+    }
+
+    function buildLeadMessage(data) {
+      return `Hola CENIX, quiero solicitar presupuesto:
+
+👤 Nombre: ${data.name || '-'}
+📞 Teléfono: ${data.phone || '-'}
+📧 Email: ${data.email || '-'}
+🛠 Servicio: ${data.service || '-'}
+
+📝 Proyecto:
+${data.message || '-'}`;
+    }
+
+    document.getElementById('sendWhatsapp').addEventListener('click', () => {
+      const data = getFormData();
+
+      if (!data.name || !data.phone || !data.message) {
+        alert('Por favor rellena al menos nombre, teléfono y mensaje.');
+        return;
+      }
+
+      const text = buildLeadMessage(data);
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/34603684836?text=${encodedText}`, '_blank');
+    });
+
+    document.getElementById('sendEmail').addEventListener('click', () => {
+      const data = getFormData();
+      const subject = encodeURIComponent(`Solicitud de presupuesto - ${data.name || 'Nuevo contacto'}`);
+      const body = encodeURIComponent(buildLeadMessage(data));
+      window.location.href = `mailto:info@cenixmadrid.com?subject=${subject}&body=${body}`;
+    });
   </script>
 </body>
 </html>
