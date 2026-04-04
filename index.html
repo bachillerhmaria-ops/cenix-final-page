@@ -12,15 +12,12 @@
     :root {
       --bg: #050608;
       --panel: rgba(20, 21, 26, 0.82);
-      --panel-2: rgba(18, 19, 24, 0.92);
       --stroke: rgba(255,255,255,0.08);
       --text: #f5f7fb;
       --muted: #a9b1bc;
       --red: #ff4a49;
-      --red-2: #ff3030;
       --cyan: #15d7ff;
       --shadow-red: 0 0 0 1px rgba(255,74,73,0.2), 0 18px 50px rgba(255, 58, 58, 0.16);
-      --shadow-cyan: 0 0 0 1px rgba(21,215,255,0.16), 0 18px 50px rgba(21,215,255,0.08);
       --container: 1280px;
     }
 
@@ -511,9 +508,12 @@
 
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 22px;
       align-items: start;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .process-card {
@@ -673,39 +673,50 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 28px;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
       align-items: start;
     }
 
     .contact-stack {
       display: grid;
-      gap: 18px;
+      gap: 14px;
     }
 
     .contact-card {
       background: linear-gradient(180deg, rgba(24,26,32,0.88), rgba(16,17,22,0.94));
       border: 1px solid var(--stroke);
-      border-radius: 20px;
-      padding: 22px;
+      border-radius: 18px;
+      padding: 16px 18px;
       transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
     }
 
     .contact-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       border-color: rgba(255,255,255,0.14);
-      box-shadow: 0 20px 52px rgba(0,0,0,0.28), 0 0 20px rgba(255,74,73,0.08);
+      box-shadow: 0 16px 38px rgba(0,0,0,0.24), 0 0 18px rgba(255,74,73,0.08);
     }
 
     .contact-card .mini {
-      font-size: 14px;
+      font-size: 13px;
       color: #c7ced8;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .contact-card h3 {
-      margin: 6px 0 0;
-      font-size: clamp(20px, 1.6vw, 30px);
+      margin: 4px 0 0;
+      font-size: clamp(16px, 1.25vw, 22px);
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    .contact-card a {
+      color: #eef3f8;
+      transition: color .22s ease;
+    }
+
+    .contact-card a:hover {
+      color: #fff;
     }
 
     .contact-card.highlight {
@@ -758,7 +769,7 @@
     }
 
     .full { grid-column: 1 / -1; }
-    textarea { min-height: 170px; resize: vertical; }
+    textarea { min-height: 150px; resize: vertical; }
 
     .submit-row {
       margin-top: 18px;
@@ -773,14 +784,14 @@
     }
 
     .footer {
-      padding: 74px 0 30px;
+      padding: 56px 0 24px;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
-      gap: 38px;
+      gap: 30px;
     }
 
     .footer-logo {
@@ -788,7 +799,7 @@
       align-items: center;
       justify-content: center;
       min-width: 170px;
-      height: 74px;
+      height: 68px;
       padding: 0 22px;
       background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.08);
@@ -810,13 +821,13 @@
     .socials {
       display: flex;
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 20px;
       flex-wrap: wrap;
     }
 
     .social {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       display: inline-grid;
       place-items: center;
       border-radius: 12px;
@@ -835,8 +846,8 @@
 
     .footer-title {
       margin-top: 0;
-      margin-bottom: 18px;
-      font-size: 28px;
+      margin-bottom: 16px;
+      font-size: 24px;
     }
 
     .footer-links,
@@ -845,7 +856,7 @@
       padding: 0;
       margin: 0;
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
     .footer-links a,
@@ -853,6 +864,7 @@
       color: #d7dee8;
       transition: color .22s ease, transform .22s ease;
       display: inline-block;
+      font-size: 15px;
     }
 
     .footer-links a:hover,
@@ -862,20 +874,20 @@
     }
 
     .footer-bottom {
-      margin-top: 34px;
-      padding-top: 24px;
+      margin-top: 28px;
+      padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
       color: #a9b1bc;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .legal {
       display: flex;
-      gap: 22px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
@@ -919,43 +931,308 @@
     }
 
     @media (max-width: 1200px) {
-      .reasons-grid,
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .reasons-grid { grid-template-columns: repeat(2, 1fr); }
       .projects-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 980px) {
       .menu { display: none; }
-      .nav { min-height: 78px; }
-      .hero-inner { padding-top: 84px; }
+      .nav { min-height: 74px; }
+      .hero-inner { padding-top: 82px; }
       .stats,
       .services-grid,
       .contact-grid,
       .form-grid,
       .projects-grid,
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid,
       .reasons-grid,
-      .process-grid { grid-template-columns: 1fr; }
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
       .contact-grid { gap: 18px; }
+      .process-grid { max-width: 100%; }
     }
 
     @media (max-width: 640px) {
-      .container { width: min(calc(100% - 28px), var(--container)); }
-      .btn { width: 100%; }
-      .hero-actions { flex-direction: column; }
-      .brand { min-width: 118px; height: 48px; }
-      .brand img { height: 20px; }
+      .container { width: min(calc(100% - 24px), var(--container)); }
+
+      .brand {
+        min-width: 110px;
+        height: 44px;
+      }
+
+      .brand img { height: 18px; }
+
+      .btn {
+        width: 100%;
+        padding: 12px 18px;
+        font-size: 15px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        padding: 72px 0 44px;
+      }
+
+      .hero-logo {
+        margin-bottom: 20px;
+      }
+
+      .hero-logo img {
+        width: min(240px, 70vw);
+      }
+
+      .hero h1 {
+        font-size: clamp(30px, 9vw, 42px);
+        line-height: 1.02;
+      }
+
+      .hero p {
+        font-size: 17px;
+        margin-top: 18px;
+      }
+
+      .hero-actions {
+        margin-top: 22px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .stats {
+        margin-top: 32px;
+        gap: 12px;
+      }
+
+      .stat strong {
+        font-size: 32px;
+      }
+
+      .stat span {
+        font-size: 15px;
+        margin-top: 4px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+
+      .section-title {
+        font-size: clamp(28px, 8vw, 36px);
+      }
+
+      .section-copy {
+        margin-top: 12px;
+        font-size: 16px;
+      }
+
+      .services-grid,
+      .reasons-grid,
+      .process-grid,
+      .projects-grid {
+        margin-top: 30px;
+        gap: 14px;
+      }
+
       .card,
-      .form-panel,
-      .contact-card,
+      .process-card,
       .project,
-      .process-card { border-radius: 18px; }
-      .section { padding: 86px 0; }
-      .stats { gap: 18px; }
-      .stat span { font-size: 16px; }
-      .footer-bottom { flex-direction: column; }
+      .form-panel {
+        border-radius: 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .icon-box {
+        width: 54px;
+        height: 54px;
+        font-size: 22px;
+        border-radius: 14px;
+      }
+
+      .card h3,
+      .reason h3,
+      .project h3,
+      .process-card h3 {
+        margin: 16px 0 8px;
+        font-size: 24px;
+      }
+
+      .card p,
+      .reason p,
+      .project p,
+      .process-card p {
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .feature-list {
+        margin-top: 16px;
+        gap: 10px;
+      }
+
+      .feature-list li {
+        font-size: 15px;
+      }
+
+      .reason {
+        padding: 8px;
+      }
+
+      .reason .icon-box {
+        width: 66px;
+        height: 66px;
+      }
+
+      .process-card {
+        min-height: auto;
+        padding: 20px 18px;
+      }
+
+      .step-number {
+        width: 54px;
+        height: 54px;
+        font-size: 22px;
+        margin-bottom: 14px;
+      }
+
+      .filter-bar {
+        margin-top: 18px;
+        gap: 8px;
+      }
+
+      .filter-pill {
+        padding: 8px 14px;
+        font-size: 14px;
+      }
+
+      .project-body {
+        padding: 16px;
+      }
+
+      .contact-grid {
+        margin-top: 26px;
+        gap: 12px;
+      }
+
+      .contact-stack {
+        gap: 10px;
+      }
+
+      .contact-card {
+        padding: 14px 14px;
+        border-radius: 14px;
+      }
+
+      .contact-card .mini {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .contact-card h3 {
+        font-size: 15px;
+      }
+
+      .form-panel {
+        padding: 18px;
+      }
+
+      .form-grid {
+        gap: 12px;
+      }
+
+      .field,
+      .select,
+      textarea {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+
+      textarea {
+        min-height: 110px;
+      }
+
+      .submit-row {
+        margin-top: 12px;
+        gap: 10px;
+      }
+
+      .fineprint {
+        font-size: 12px;
+      }
+
+      .footer {
+        padding: 34px 0 18px;
+      }
+
+      .footer-grid {
+        margin-top: 0;
+        gap: 18px;
+      }
+
+      .footer-logo {
+        min-width: 132px;
+        height: 52px;
+      }
+
+      .footer-logo img {
+        height: 20px;
+      }
+
+      .footer p,
+      .footer a,
+      .footer li {
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .footer-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .socials {
+        margin-top: 14px;
+        gap: 8px;
+      }
+
+      .social {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      .footer-bottom {
+        margin-top: 18px;
+        padding-top: 14px;
+        flex-direction: column;
+        font-size: 12px;
+        gap: 8px;
+      }
+
+      .legal {
+        gap: 12px;
+      }
+
       .whatsapp-label { display: none; }
+      .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        right: 16px;
+        bottom: 16px;
+        font-size: 26px;
+      }
     }
   </style>
 </head>
@@ -1121,11 +1398,6 @@
             <h3>Ejecución</h3>
             <p>Realizamos el trabajo con profesionalidad, calidad y en los plazos acordados.</p>
           </article>
-          <article class="process-card">
-            <div class="step-number">04</div>
-            <h3>Garantía</h3>
-            <p>Todos nuestros trabajos incluyen garantía, seguimiento y servicio posventa.</p>
-          </article>
         </div>
 
         <div class="process-cta">
@@ -1226,26 +1498,31 @@
         <div class="contact-grid">
           <div class="contact-stack">
             <article class="contact-card">
-              <div class="icon-box">☎</div>
               <div class="mini">Teléfono</div>
-              <h3>+34 603 684 836</h3>
+              <h3><a href="tel:+34603684836">+34 603 684 836</a></h3>
             </article>
 
             <article class="contact-card">
-              <div class="icon-box">✉</div>
               <div class="mini">Email</div>
-              <h3>info@cenixmadrid.com</h3>
+              <h3><a href="mailto:info@cenixmadrid.com">info@cenixmadrid.com</a></h3>
             </article>
 
             <article class="contact-card">
-              <div class="icon-box">📍</div>
               <div class="mini">Dirección</div>
-              <h3>Calle Portugal 54, Nave 34, Mejorada del Campo, 28848</h3>
+              <h3>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calle+Portugal+54,+Nave+34,+Mejorada+del+Campo,+28848" target="_blank" rel="noopener noreferrer">
+                  Calle Portugal 54, Nave 34, Mejorada del Campo, 28848
+                </a>
+              </h3>
             </article>
 
             <article class="contact-card highlight">
-              <h3>Instagram y RRSS</h3>
-              <p><span style="color: var(--cyan); font-weight: 700;">@cenixmadrid</span></p>
+              <div class="mini">IG</div>
+              <h3>
+                <a href="https://instagram.com/cenixmadrid" target="_blank" rel="noopener noreferrer">
+                  @cenixmadrid
+                </a>
+              </h3>
             </article>
           </div>
 
@@ -1260,6 +1537,7 @@
                 <option>Reforma integral</option>
                 <option>Mantenimiento</option>
                 <option>Eficiencia energética</option>
+                <option>Otro</option>
               </select>
               <textarea id="message" class="full" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
             </div>
@@ -1281,7 +1559,7 @@
           <div class="footer-logo">
             <img src="images/logo.png" alt="Logo CENIX">
           </div>
-          <p style="max-width: 360px; margin-top: 22px;">Especialistas en climatización y reformas con más de 15 años de experiencia.</p>
+          <p style="max-width: 360px; margin-top: 18px;">Especialistas en climatización y reformas con más de 15 años de experiencia.</p>
           <div class="socials">
             <a class="social" href="https://instagram.com/cenixmadrid" target="_blank" rel="noopener noreferrer" aria-label="Instagram">@</a>
             <a class="social" href="mailto:info@cenixmadrid.com" aria-label="Email">✉</a>
@@ -1316,7 +1594,7 @@
             <li><a href="tel:+34603684836">+34 603 684 836</a></li>
             <li><a href="mailto:info@cenixmadrid.com">info@cenixmadrid.com</a></li>
             <li><a href="https://instagram.com/cenixmadrid" target="_blank" rel="noopener noreferrer">@cenixmadrid</a></li>
-            <li><a href="#contacto">Calle Portugal 54, Nave 34, Mejorada del Campo, 28848</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Calle+Portugal+54,+Nave+34,+Mejorada+del+Campo,+28848" target="_blank" rel="noopener noreferrer">Calle Portugal 54, Nave 34, Mejorada del Campo, 28848</a></li>
           </ul>
         </div>
       </div>
