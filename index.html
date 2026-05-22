@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- ✅ FIX 1: Meta tags esenciales — pegar en <head> -->
+
+<title>CENIX Madrid | Climatización, Aire Acondicionado y Reformas Integrales</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="CENIX, especialistas en climatización, aire acondicionado, calefacción, aerotermia y reformas integrales en Madrid. +15 años de experiencia. Solicita presupuesto sin compromiso.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://www.cenixmadrid.com/">
+  <!-- ✅ FIX 2: Open Graph para redes sociales -->
+
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://www.cenixmadrid.com/">
+<meta property="og:title"       content="CENIX Madrid | Climatización y Reformas Integrales">
+<meta property="og:description" content="Especialistas en climatización, aire acondicionado, aerotermia y reformas integrales en Madrid. +15 años de experiencia. Presupuesto sin compromiso.">
+<meta property="og:image"       content="https://www.cenixmadrid.com/images/og-cenix.jpg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale"       content="es_ES">
+<meta property="og:site_name"    content="CENIX Madrid">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="CENIX Madrid | Climatización y Reformas Integrales">
+<meta name="twitter:description"  content="Especialistas en climatización y reformas integrales en Madrid. +15 años de experiencia.">
+<meta name="twitter:image"        content="https://www.cenixmadrid.com/images/og-cenix.jpg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CENIX | Climatización y Reformas</title>
@@ -1700,5 +1730,57 @@ ${data.message || '-'}`;
       window.location.href = `mailto:info@cenixmadrid.com?subject=${subject}&body=${body}`;
     });
   </script>
+  <!-- ✅ FIX 3: Schema LocalBusiness —→ justo antes de </body> -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "CENIX Madrid",
+  "url": "https://www.cenixmadrid.com",
+  "logo": "https://www.cenixmadrid.com/images/logo.png",
+  "image": "https://www.cenixmadrid.com/images/og-cenix.jpg",
+  "description": "Especialistas en climatización, aire acondicionado, calefacción, aerotermia y reformas integrales en Madrid con más de 15 años de experiencia.",
+  "telephone": "+34603684836",
+  "email": "info@cenixmadrid.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "TU CALLE Y NÚMERO",  // ← actualizar
+    "addressLocality": "Madrid",
+    "postalCode": "28XXX",          // ← actualizar
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.4168,             // ← actualizar con coords exactas
+    "longitude": -3.7038              // ← actualizar con coords exactas
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": "Madrid"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios CENIX",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Climatización" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reformas integrales" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Instalación aerotermia" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento HVAC" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Eficiencia energética" } }
+    ]
+  },
+  "sameAs": [
+    "https://www.instagram.com/cenixmadrid"
+  ]
+}
+</script>
 </body>
 </html>
